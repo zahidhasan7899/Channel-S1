@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamTheGame</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.20.3/video-js.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.20.3/video.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+        }
+        .header {
+            background-color: #1e1e1e;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .telegram-banner {
+            position: fixed;
+            top: 70px;
+            right: 15px;
+            background-color: rgba(0, 136, 204, 0.9);
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+        .telegram-banner img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        video {
+            width: 90%;
+            max-width: 720px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">StreamTheGame</div>
+
+    <div class="video-container">
+        <video id="my-video" class="video-js vjs-default-skin" controls autoplay preload="auto" playsinline>
+            <source src="https://cdn.hoichoi24.com/sonyten1hd/tracks-v1a1/mono.ts.m3u8" type="application/x-mpegURL">
+        </video>
+    </div>
+
+    <a href="https://t.me/streamthegame" target="_blank" class="telegram-banner">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram"> Join Us on Telegram
+    </a>
+
+    <script>
+        var player = videojs('my-video', {
+            controls: true,
+            autoplay: true,
+            preload: 'auto',
+            fluid: true,
+            responsive: true,
+            playbackRates: [0.5, 1, 1.5, 2] // Allows speed adjustment
+        });
+
+        player.on('error', function() {
+            console.log('An error occurred while loading the video.');
+        });
+    </script>
+</body>
+</html>
